@@ -1,8 +1,12 @@
-const reduceTheTwoUsing = (yourTotal: number) => (
-  accumulator: number[],
-  value: number,
-  _: number,
-  array: number[],
+interface Day1Reducer {
+  (accumulator: number[], value: number, _: number, array: number[]): number[];
+}
+
+const reduceTheTwoUsing = (yourTotal: number): Day1Reducer => (
+  accumulator,
+  value,
+  _,
+  array,
 ) => {
   if (accumulator.length === 2) {
     return accumulator;
@@ -18,12 +22,7 @@ const reduceTheTwoUsing = (yourTotal: number) => (
   return [0];
 };
 
-const reduceTheThree = (
-  accumulator: number[],
-  value: number,
-  _: number,
-  array: number[],
-) => {
+const reduceTheThree: Day1Reducer = (accumulator, value, _, array) => {
   if (accumulator.length === 3) {
     return accumulator;
   }
