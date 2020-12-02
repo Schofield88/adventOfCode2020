@@ -1,29 +1,15 @@
-const validatePasswordInformation = (passwords: string[]): number => {
-  const passwordReducer = (
-    accumulator: number,
-    passwordThingy: string,
-  ): number => {
-    const [range, letterWithColon, password] = passwordThingy.split(' ');
+import { passwordReducer, updatedPasswordReducer } from './reducers/reducers';
 
-    const [lower, upper] = range.split('-');
-    const letter = letterWithColon.slice(0, 1);
+interface PasswordValidator {
+  (passwords: string[]): number;
+}
 
-    const breakUpThePassword = password.split('');
-    const justTheLetter = breakUpThePassword.filter(
-      singleLetter => singleLetter === letter,
-    );
-
-    if (
-      justTheLetter.length >= parseInt(lower) &&
-      justTheLetter.length <= parseInt(upper)
-    ) {
-      return accumulator + 1;
-    }
-
-    return accumulator;
-  };
-
+const validatePasswordInformation: PasswordValidator = passwords => {
   return passwords.reduce(passwordReducer, 0);
 };
 
-export { validatePasswordInformation };
+const updatedValidatePasswordPolicy: PasswordValidator = passwords => {
+  return passwords.reduce(updatedPasswordReducer, 0);
+};
+
+export { updatedValidatePasswordPolicy, validatePasswordInformation };
