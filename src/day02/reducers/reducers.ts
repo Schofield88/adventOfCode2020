@@ -48,4 +48,4 @@ const updatedPasswordReducer: PasswordReducer = (
   return accumulator;
 };
 
-export { passwordReducer, updatedPasswordReducer };
+export { passwordReducer, PasswordReducer, updatedPasswordReducer };
