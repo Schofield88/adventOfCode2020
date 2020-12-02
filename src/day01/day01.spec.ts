@@ -33,7 +33,7 @@ describe('day01', () => {
     });
 
     it('gives me the answer AdventOfCode is looking for', () => {
-      expect(findTheThree(puzzleInput)).toEqual(2020);
+      expect(findTheThree(puzzleInput)).toEqual(199300880);
     });
   });
 });
